@@ -4,26 +4,30 @@
 #
 #
 WORKDIR=/opt/take_notes/
-build() {
+function build() {
   cd $WORKDIR
   gitbook install
   gitbook build
 }
 
-start() {
+function red(){
+    echo -e "\033[31m\033[01m$1\033[0m"
+}
+
+function start() {
   pid=`ps aux | grep gitbook | grep -v grep | awk '{print $2}'`
   if [ -n "$pid" ]; then
-    "gitbook is running"
+    red "gitbook is running"
     exit 1
   fi
   cd $WORKDIR
   `gitbook serve >/dev/null 2>&1 &`
 }
-stop() {
+function stop() {
   `ps aux | grep gitbook | grep -v grep | awk '{print $2}' | xargs kill`
 }
 
-restart() {
+function restart() {
   stop
   start
 }
