@@ -14,6 +14,11 @@ function red(){
     echo -e "\033[31m\033[01m$1\033[0m"
 }
 
+function pullCode() {
+  cd $WORKDIR
+  git pull
+}
+
 function start() {
   pid=`ps aux | grep gitbook | grep -v grep | awk '{print $2}'`
   if [ -n "$pid" ]; then
@@ -32,5 +37,6 @@ function restart() {
   start
 }
 
+pullCode
 build
 restart
