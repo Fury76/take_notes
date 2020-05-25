@@ -4,4 +4,4 @@ local shell = require "/opt/take_notes/lib.shell"
    }
 local status, out, err = shell.execute("sh /opt/take_notes/bootstrap.sh", args)  --ls 是想调用的命令,
 ngx.header.content_type = "text/plain"
-ngx.say("Result:\n" .. out)
+ngx.say("ok\n")
