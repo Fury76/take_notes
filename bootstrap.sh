@@ -33,4 +33,4 @@ function restart() {
 }
 
 build
-start
+restart
