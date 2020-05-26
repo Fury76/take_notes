@@ -38,5 +38,5 @@ function restart() {
 }
 
 pullCode
-build
-restart
+#build
+#restart
